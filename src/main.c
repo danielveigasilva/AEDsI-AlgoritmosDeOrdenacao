@@ -2,7 +2,6 @@
 #include <string.h>
 #include <helper.h>
 
-
 int main()
 {
 	printf("---Algoritmos de Ordenação---\n\n");
