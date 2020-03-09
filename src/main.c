@@ -6,12 +6,16 @@ int main()
 {
 	printf("---Algoritmos de Ordenação---\n\n");
 	printf("Tamanho do Vetor: ");
-	
+
 	int num;
 	scanf("%d", &num);
-	
+
 	int vetor[num];
 	InsertRandomVector(vetor,num);
+
+	
+
+
 
 	Table table[num];
 
