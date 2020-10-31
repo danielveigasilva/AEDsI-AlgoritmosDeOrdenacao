@@ -18,7 +18,7 @@ void SortAndPrint(int *vector, int n, char *algorithm){
 int main()
 {
 	printf("\n");
-	
+
 	char r = 'x';
 	printf("Deseja gerar um vetor randomico? (y/n) ");
 	while(1){
@@ -29,12 +29,14 @@ int main()
 
 	int size = 0;
 	printf("Insira o tamanho do vetor %s", r == 'y'? "(Digite 0 para tamanho randomico): ":"a ser digitado: ");
-	while (size <= 0){
-		scanf("%d", &size);
+	while (1){
+		scanf(" %d", &size);
 		if (size <= 0 && r == 'y'){
 			size = RandomSize(30);
 			break;	
 		}
+		else if (size > 0)
+			break;
 	}
 
 	int vector[size];
