@@ -1,4 +1,4 @@
-# AEDsI-AlgoritmosDeOrdenacao
+# Algoritmos de Ordenação
 
 Códigos de estudo da matéria de AEDs I.
 
