@@ -24,8 +24,8 @@ make build LIBS= -lhelper -lsort
 
 ## Algorítimos Implementados
 
-**1)**Seleção
-**2)**Inserção
-**3)**Mergesort
-**4)**Quicksort
-**5)**Shellsort
+**1)** Seleção
+**2)** Inserção
+**3)** Mergesort
+**4)** Quicksort
+**5)** Shellsort
