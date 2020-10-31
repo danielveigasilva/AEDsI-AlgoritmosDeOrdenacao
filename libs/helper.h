@@ -13,7 +13,9 @@ typedef struct Table
 } Table;
 
 void InsertRandomVector(int * vector, int size);
+int RandomSize(int max);
 void PrintTable(Table table[], int row, int col);
 void Int2Str(int num, char * str);
+void printv(int Vector[], int n);
 
 #endif

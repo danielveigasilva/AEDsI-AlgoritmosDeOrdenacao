@@ -11,6 +11,11 @@ void InsertRandomVector(int * vector, int size)
         vector[i] = rand() % 100; 
 }
 
+int RandomSize(int max){
+    srand(time(NULL));
+    return (rand() % max);
+}
+
 void PrintTable(Table table[], int row, int col)
 {
     int space[col];
@@ -81,4 +86,14 @@ void Int2Str(int num, char * str)
         len ++;
     }
     str[len] = '\0';
+}
+
+void printv(int Vector[], const int n){
+    printf("[");
+    for (int i = 0; i < n; i++){
+        if (i != 0)
+            printf(",");
+        printf(" %d ", Vector[i]);
+    }
+    printf("]");
 }

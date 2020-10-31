@@ -1,26 +1,37 @@
-LIBS ?= -lhelper -lsort
+ifdef OS
+   CREATE_DIR = if not exist "build\" mkdir "build\"
+   REMOVE_FILE = rd
+   FILE_NAME = main.exe
+else
+   ifeq ($(shell uname), Linux)
+      CREATE_DIR = mkdir -p build
+	  REMOVE_FILE = rm build/
+	  FILE_NAME = main.out
+   endif
+endif
 
-build: folder $(LIBS) main
+LIBS = -lsort -lhelper
+
+build: folder compilacao $(LIBS) main run
 
 folder:
-	@mkdir -p build
+	@$(CREATE_DIR)
 
--lhelper:
-	@echo Compilando Lib: helper 
-	@gcc -c lib/helper.c -o build/helper.o
-	@ar rcs build/libhelper.a build/helper.o
-	@rm build/helper.o
+compilacao: 
+	@echo Compilando Libs...
+	@cd build && gcc -c ../libs/*.c
+
+-lhelper: 
+	cd build && ar rcs libhelper.a $(shell dir /b/s "helper*.o")
 
 -lsort:
-	@echo Compilando Lib: sort
-	@gcc -c lib/sort.c -o build/sort.o
-	@ar rcs build/libsort.a build/sort.o
-	@rm build/sort.o
+	cd build && ar rcs libsort.a $(shell dir /b/s "sort*.o")
 
 main:
 	@echo Building...
-	@gcc -static src/main.c -L ./build -I ./lib $(LIBS) -o build/main.out
+	@gcc -static src/main.c -L ./build -I ./libs $(LIBS) -o build/$(FILE_NAME)
+
+run:
 	@echo Executando:
-	@echo 
-	@build/main.out
+	@./build/$(FILE_NAME)
 
